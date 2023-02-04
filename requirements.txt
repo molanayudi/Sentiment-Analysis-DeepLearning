@@ -9,3 +9,4 @@ regex==2022.1.18
 tokenizers==0.11.4
 torch==1.10.2
 PySastrawi
+python-multipart==0.0.5
