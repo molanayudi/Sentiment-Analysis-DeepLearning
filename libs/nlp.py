@@ -9,9 +9,8 @@ stemmer = factory.create_stemmer()
 alay_dict = pd.read_csv('data/new_kamusalay.csv', encoding='latin-1', header=None)
 alay_dict = alay_dict.rename(columns={0: 'original', 1: 'replacement'})
 
-id_stopword_dict = pd.read_csv('data/stopwordbahasa.csv', encoding='latin-1', header=None)
-id_stopword_dict = id_stopword_dict.rename(columns={0: 'original', 1: 'stopword'})
-
+id_stopword_dict = pd.read_csv('data/stopwordbahasa.csv', header=None)
+id_stopword_dict = id_stopword_dict.rename(columns={0: 'stopword'})
 
 
 def lowercase(text):
@@ -32,7 +31,7 @@ def remove_nonaplhanumeric(text):
 alay_dict_map = dict(zip(alay_dict['original'], alay_dict['replacement']))
 def normalize_alay(text):
     return ' '.join([alay_dict_map[word] if word in alay_dict_map else word for word in text.split(' ')])
-
+ 
 def remove_stopword(text):
     text = ' '.join(['' if word in id_stopword_dict.stopword.values else word for word in text.split(' ')])
     text = re.sub('  +', ' ', text) # Remove extra spaces
