@@ -1,1 +1,1 @@
-Platinum Challange
+Deep Learning Application for Sentiment Analysis Using RNN & LSTM
